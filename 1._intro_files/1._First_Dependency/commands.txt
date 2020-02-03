@@ -1,2 +1,28 @@
 npm install
 node <filename.js>
+
+ npm run <scriptname> 
+
+
+git clone
+git add -A 
+git commit -m "first commit"
+git push
+
+
+
+
+DOM: interface that allows you to manipulate DOM elements / html nodes
+
+Transpile: Convert from one language to another or another version
+
+
+
+Components:
+- Class based (more simple way)
+- Function based 
+
+Components have one method = render
+
+
+jsx = looks like html - has reserved keywords
