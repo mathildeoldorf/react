@@ -1,0 +1,87 @@
+npm install
+node <filename.js>
+
+ npm run <scriptname> 
+    example: npm run start (entry point for the react template)
+
+
+git clone
+git add -A 
+git commit -m "first commit"
+git push
+
+DOM: interface that allows you to manipulate DOM elements / html nodes
+
+Transpile: Convert from one language to another or another version
+
+Components - 2 kinds:
+- Class based (more simple way)
+- Function based 
+
+Components have one method = render
+
+
+jsx = looks like html - has reserved keywords
+
+
+npx: Puts in the cache and uses the package from the repository - executing - will be up to date
+npm: Install in the current location - managing - will install a version and not update
+
+Create a react project from template: npx create-react-app 
+
+
+REACTDOM.render(<html tag/>, document.getElementByID (id of the tag))
+
+Create a new class (shoule be capital): class App extends React.Component{
+    render(){ // The render method
+
+        return()
+
+    }
+}
+
+import React, { Component } from 'react'; // You need to import React in the local scope, when you are using JSX code
+
+
+Passing data from parent to child = probs - json object that contains keys and values
+
+To inject JS into JSX = {<your code>}
+
+
+Props:
+
+// object destructuring assignment
+    // Get data from the parent 
+    const {name, hobby} = this.props; // take them out of probs and define them in the local scope
+        Dynamic variables defined by the name given in the json object 
+
+Pass data to the child: 
+    Three ways shown here:
+
+    1. <Profile name={'Mathilde'} hobby={'plants'} />
+    2. <Profile profile={{name:'Sidsel', hobby:'Food'}} />
+
+
+    3. const profileContent = {name: 'Mathilde', hobby: 'Food'}; // before the return
+    <Profile name={'Mathilde'} hobby={'plants'} profile={profileContent} />
+
+
+    LOOPS:
+
+    - map: returns a new array and loops
+    - for loop: loops based on a condition
+
+
+    NO SEMICOLONS inside the react render return
+
+
+    props = data inherited from parent
+    state = data exisiting in the component
+
+
+    To change the state you have to call a function - the function is non blocking, doesn't block the UI thread and updates the state in its own state
+
+
+    Render followed by destructuring state and props
+
+    Everytime the state is updated, the render method is called again and it re-renders the page

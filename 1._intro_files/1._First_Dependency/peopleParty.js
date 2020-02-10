@@ -3,8 +3,6 @@
     // const = not reassigning it / changing it over time
     // let = can change
 
-const faker = require("faker");
-const Student = require('../Student.js');
 
 console.log("message: ", Student);
 
