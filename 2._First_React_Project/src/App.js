@@ -2,19 +2,36 @@ import React from 'react';
 import './App.css';
 import ProfilePage from './components/profile_page/ProfilePage';
 import BusPage from './components/bus_page/BusPage';
+import ButtonWithProps from './components/button/ButtonWithProps';
+import NewPage from './components/new_page/NewPage';
+import ButtonWithChildren from './components/button/ButtonWithChildren';
 
 class App extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-      navpage: 'bus'
+      pageToRender: undefined
     };
   }
 
-  onNavButtonClicked = ( navpage ) => {
-    this.setState({ navpage });
+  handleNavButtonClicked = ( navpage ) => {
+
+    if(navpage === 'bus'){
+      this.setState({pageToRender: <BusPage />});
+    }
+    else if( navpage === 'profile') {
+      this.setState({pageToRender: <ProfilePage />});
+    }
+    else if( navpage === 'new') {
+      this.setState({pageToRender: <NewPage />});
+    }
+
   };
+
+  handleButtonClicked = (text) => {
+    console.log(text);
+  }
 
   onDivClicked = ( navpage ) => {
     this.setState({ navpage });
@@ -32,10 +49,9 @@ class App extends React.Component {
 
   render(){
 
-    const {navpage} = this.state;
-    // const {navpage} = this.state;
+    const {pageToRender} = this.state;
  
-    console.log("this is the state", navpage );
+    console.log("this is the state", pageToRender );
 
     //WITH IF STATEMENT OUTSIDE
     // let pageContent;
@@ -48,15 +64,36 @@ class App extends React.Component {
     return (
       
       <div className="App">
+        <ButtonWithProps buttonText={"Submit"} 
+          customButtonStyle={{backgroundColor: "orange"}} 
+          onButtonClicked={() => this.handleButtonClicked("First button ever clicked")} />
+
         <div onClick={() => this.onDivClicked('div')}>Div</div>
-        <button onClick={() => this.onNavButtonClicked('bus')}>Bus</button>
-        <button onClick={() => this.onNavButtonClicked('profile')}>Profile</button>
-        { navpage === 'bus' ? 
+
+
+        <ButtonWithProps  buttonText={"Bus"}
+          customButtonStyle={{backgroundColor: "red"}}
+          onButtonClicked={() => this.setState({ pageToRender : <BusPage /> })}/>
+
+        <ButtonWithProps  buttonText={"Profile"}
+          customButtonStyle={{backgroundColor: "yellow"}}
+          onButtonClicked={() => this.setState({ pageToRender : <ProfilePage /> })}/>
+
+        <ButtonWithProps  buttonText={"New"}
+          onButtonClicked={() => this.setState({ pageToRender : <NewPage /> })}/>
+        
+        {/* { navpage === 'bus' ? 
         // WITH SHORT HAND IF INSIDE THE RENDER
           <BusPage />
           :
           <ProfilePage />
-        }
+        } */}
+
+        {pageToRender}
+
+        <ButtonWithChildren>
+          ButtonWithChildren
+        </ButtonWithChildren>
 
         <h2 className="App-header-two">Welcome to</h2>
         

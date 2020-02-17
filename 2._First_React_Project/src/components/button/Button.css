@@ -1,0 +1,14 @@
+.button-with-props{
+    border: solid 1px white;
+    padding: 1vw; 
+    color: #fff;
+    background-color: transparent;
+    margin: 1vw;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .button-with-props:hover{
+    border: solid 1px transparent;
+    background-color: #fff;
+    color: cornflowerblue;
+  }
