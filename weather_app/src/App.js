@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Search from './components/Search/Search';
+import CurrentWeather from './pages/CurrentWeather/CurrentWeather';
 import Forecast from './pages/Forecast/Forecast';
 
 import './App.css';
@@ -13,31 +14,14 @@ import './App.css';
 export default class App extends Component {
 
   state = {
-    city: undefined
+    city: 'Copenhagen'
   }
 
   handleCallbackFunction = (childData) => {
-   
     this.setState({
       city: childData
     });
-
-    localStorage.setItem('city', childData);
-    // this.setState({
-    //   city: localStorage.city
-    // });
-
-    console.log(localStorage);
 }
-
-  // handleSearchInput = (event) => {
-  //   // this.setState({
-  //   //   city: event.target.value
-  //   // });
-
-  //   // console.log(this.state.city);
-  //   console.log('this.state.city');
-  // }
 
   render(){
 
@@ -63,17 +47,16 @@ export default class App extends Component {
                 </ul>
           </nav>
           <Switch>
-            <Route exact path="/">
-            </Route> 
+            <Route exact path="/" component={(props) => <CurrentWeather {...props} city={this.state.city}/>}/>
+           
             <Route path="/forecast" component={(props) => <Forecast {...props} city={this.state.city}/>}/>
           </Switch>
 
           {/* < Navigation /> */}
           {/* <Routes /> */}
 
-          
           <main>
-            {/* < Search handleSearchInput={this.handleSearchInput} /> */}
+
             < Search parentCallback = {this.handleCallbackFunction}/>
           </main>
           <footer>
@@ -81,7 +64,6 @@ export default class App extends Component {
           </footer>
         </div>
       </Router>
-      
         
     );
 

@@ -1,64 +1,84 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 import './Forecast.css';
-// import Search from '../../components/Search/Search';
+import SingleForecast from './SingleForecast';
 
 const APIkey = '0a12db146c850ff71f959d2eac0d28ef';
 
-let currentWeatherData = {};
-// let fiveDayForecast = {};
+let fiveDayForecastListData = [];
 
 export default class Forecast extends Component {
 
+    _isMounted = false;
+
+    state = {
+        isLoading: true
+    }
+
     componentDidMount(){
-        console.log(this.props.city);
+        // console.log(this.props.city);
+        this._isMounted = true;
+
         if(this.props.city){
-            // this.handleFetchCurrentWeatherData(this.props.city);
-            this.render(
-                // <Search />
-            );
-        }
-        if(localStorage.city){
-            this.handleFetchCurrentWeatherData(localStorage.city);
-        }
-        
+            this.handleFetchForecastData(this.props.city);
+        }     
     }
     
-    handleFetchCurrentWeatherData(city){
-        Axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${APIkey}&units=metric`)
+    handleFetchForecastData(city){
+        Axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIkey}&units=metric`)
         .then(response => {
+            console.log(response);
 
-            currentWeatherData = {
-                date: response.data.dt,
-                city: response.data.name,
-                country: response.data.sys.country,
+            fiveDayForecastListData = [];
 
-                weather: response.data.weather[0].main,
-                desc: response.data.weather[0].description,
-                icon: response.data.weather[0].icon,
+            let fiveDayForecastList = response.data.list;
 
-                aTemp: response.data.main.temp + ' °c',
-                fTemp: response.data.main.feels_like + ' °c',
-                minTemp: response.data.main.temp_min + ' °c',
-                maxTemp: response.data.main.temp_max + ' °c',
+            fiveDayForecastList.map( singleForecast => {
+                let singleForecastData = {
+
+                date: singleForecast.dt,
+                city: response.data.city.name,
+                country: response.data.city.country,
+
+                weather: singleForecast.weather[0].main,
+                desc: singleForecast.weather[0].description,
+                icon: singleForecast.weather[0].icon,
+
+                aTemp: singleForecast.main.temp + ' °c',
+                fTemp: singleForecast.main.feels_like + ' °c',
+                minTemp: singleForecast.main.temp_min + ' °c',
+                maxTemp: singleForecast.main.temp_max + ' °c',
                 
-                humidity: response.data.main.humidity,
-                clouds: response.data.clouds.all,
-                wind: response.data.wind.speed + ' m/s',
-                sunrise: response.data.sys.sunrise,
-                sunset: response.data.sys.sunset
+                humidity: singleForecast.main.humidity,
+                clouds: singleForecast.clouds.all,
+                wind: singleForecast.wind.speed + ' m/s',
+                sunrise: response.data.city.sunrise,
+                sunset: response.data.city.sunset
 
-            };
+                }
 
-            this.handleConvertDate(currentWeatherData);
-            this.handleIconUrl(currentWeatherData);
-            this.handleCapitalizeString(currentWeatherData);
+                this.handleConvertDate(singleForecastData);
+                this.handleIconUrl(singleForecastData);
+                this.handleCapitalizeString(singleForecastData);
 
-            this.setState({
-                currentWeather: currentWeatherData
+                fiveDayForecastListData.push(singleForecastData);
+
+                return fiveDayForecastListData;
+
             });
             
-        })
+            if( this._isMounted ){
+                this.setState({
+                    currentForecastList: fiveDayForecastListData,
+                    isLoading: false
+                
+                });
+                  // console.log(this.state);
+            }
+
+          
+            
+        });
     }
 
     handleSearchInput = () => {
@@ -89,21 +109,19 @@ export default class Forecast extends Component {
     } 
 
     render(){
-        console.log('hello', this.props.city);
-        console.log(currentWeatherData);
-        let icon = currentWeatherData.icon;
+        // console.log('hello', this.props.city);
+
+        // const { city } = this.props;
+        // const { currentForecastList } = this.state;
 
         return(
             <div>
-                <h1>Here is your forecast</h1>
-           
-                <div className="Current-weather">
-                    <h1>{currentWeatherData.city}, {currentWeatherData.country}</h1>
-                    <div className="Icon" style={{backgroundImage: 'url(' + icon + ')'}}></div>
-                    <h2>{currentWeatherData.aTemp}</h2>
-                    <h2>{currentWeatherData.desc}</h2>
-                    <h3>Wind: {currentWeatherData.wind}</h3>
-                </div>    
+                <h1>Here is your five day forecast</h1>
+
+                {fiveDayForecastListData.map(( singleForecast, index ) => {
+                    return <SingleForecast key={"forecast-" + index} forecastData={ singleForecast } />
+                })}
+               
             </div>
         );
     }
