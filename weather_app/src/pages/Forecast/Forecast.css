@@ -1,0 +1,14 @@
+.Icon{
+    width: 10vw;
+    height: 10vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+.Current-weather{
+    padding: 3vw;
+    width: 50vw;
+    height: 30vw;
+    margin: 0 auto;
+}
