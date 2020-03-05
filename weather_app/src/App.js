@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom';
 import Search from './components/Search/Search';
 import CurrentWeather from './pages/CurrentWeather/CurrentWeather';
 import Forecast from './pages/Forecast/Forecast';
@@ -92,7 +92,6 @@ export default class App extends Component {
         if(singleWeatherType === weather){
           document.querySelector('.App').classList.add(weather);
         }
-        // document.querySelector('.App').classList.add(weather);
         return singleWeatherType;
         
       });
@@ -120,14 +119,14 @@ export default class App extends Component {
           <div className="Grid-container Grid-two-thirds">  
           <nav className="Navigation">
             <header className="App-header">
-            <Link to="/"><h1>In Rain or Shine <Logo/></h1></Link>
+            <Link activeClassName="active" to="/"><h1>In Rain or Shine <Logo/></h1></Link>
             </header>
                 <ul>
                     <li>
-                    <Link to="/">Current Weather</Link>
+                    <NavLink activeClassName="active" to="/">Current Weather</NavLink>
                     </li>
                     <li>
-                    <Link to="/forecast">5-day Forecast</Link>
+                    <NavLink activeClassName="active" to="/forecast">5-day Forecast</NavLink>
                     </li>
                     <li>
                     < Search parentCallbackSearchData = {this.handleCallbackFunctionSearchData}/>
@@ -137,7 +136,7 @@ export default class App extends Component {
           <main>
           <Switch>
             <Route exact path="/" component={(props) => <CurrentWeather {...props} {...this.state} weather={this.state.weather} />}/>
-            <Route path="/forecast" component={(props) => <Forecast {...props} city={this.state.city} isLoading={this.state.isLoading}/>}/>
+            <Route exact path="/forecast" component={(props) => <Forecast {...props} city={this.state.city} isLoading={this.state.isLoading}/>}/>
           </Switch>
           </main>
           </div>  

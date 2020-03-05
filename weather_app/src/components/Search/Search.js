@@ -84,7 +84,9 @@ export default class Search extends Component {
                     );
                 })
                 :
-                console.log('no results')
+                console.log('no-results')
+                // <p className='Search-result'>No results</p> 
+                
                 }
                 </div>
             </div>

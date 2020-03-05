@@ -24,7 +24,7 @@
     overflow: scroll;
     background-color: white;
     color: darkcyan;
-    font-size: calc(0.2vw + 40%);
+    font-size: calc(0.9vw + 40%);
 }
 
 .Search-result{

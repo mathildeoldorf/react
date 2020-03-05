@@ -1,8 +1,8 @@
 
 .Single-forecast{
     display: grid;
-    width: 100%;
-    min-height: 23vw;
+    width: 90%;
+    height: 100%;;
 }
 
 .Single-forecast .Header-weather {
@@ -10,13 +10,18 @@
 }
 
 .Single-forecast .Temp{
-    font-size: calc(1vw + 60%);
+    font-size: calc(1.3vw + 60%);
     padding: 0.5vw;
     color: darkcyan;
 }
 
 .Single-forecast.Current-weather{
     padding: 1.5vw;
+}
+
+.Single-forecast .Icon{
+    width: 8vw;
+    height: 7vw;
 }
 
 .Single-forecast .Weather{
@@ -27,6 +32,7 @@
     font-size: calc(1vw + 30% );
 }
 
-.Single-forecast p{
-    font-size: calc(0.5vw + 40%);
+.Single-forecast .Weather{
+    padding: 0.5vw;
+    font-size: calc(0.7vw + 30%);
 }

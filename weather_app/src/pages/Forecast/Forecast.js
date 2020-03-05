@@ -96,13 +96,11 @@ export default class Forecast extends Component {
 
     render(){
 
-        const { city } = this.props;
+        // const { city } = this.props;
         
         return(
             <div>
                 {this.handleLoading()}
-                <h2 className="Header">Five-day forecast</h2>
-                <p className="Header">{ city }</p>
                 <div className="Forecast">
                     {this.handleRenderSingleForecast()}
                 </div>
