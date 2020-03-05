@@ -1,0 +1,32 @@
+
+.Single-forecast{
+    display: grid;
+    width: 100%;
+    min-height: 23vw;
+}
+
+.Single-forecast .Header-weather {
+    font-size: calc(1vw + 30% );
+}
+
+.Single-forecast .Temp{
+    font-size: calc(1vw + 60%);
+    padding: 0.5vw;
+    color: darkcyan;
+}
+
+.Single-forecast.Current-weather{
+    padding: 1.5vw;
+}
+
+.Single-forecast .Weather{
+    font-size: calc(1vw + 20% );
+}
+
+.Single-forecast .Wind{
+    font-size: calc(1vw + 30% );
+}
+
+.Single-forecast p{
+    font-size: calc(0.5vw + 40%);
+}

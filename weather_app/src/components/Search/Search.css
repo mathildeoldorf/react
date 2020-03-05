@@ -1,14 +1,27 @@
-.Icon{
-    width: 10vw;
-    height: 10vw;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0 auto;
+.Search{
+    border: none;
+    padding: 0.7vw;
+    width: 70%;
+    margin-right: 0.5vw;
 }
 
-.Current-weather{
-    padding: 3vw;
-    width: 50vw;
-    height: 30vw;
-    margin: 0 auto;
+.Search-button{
+    border: none;
+    color: white;
+    -webkit-appearance: none;
+    background-color: darkcyan;
+    padding: 0.7vw;
+}
+
+.Search-results{
+    position: absolute;
+    display: none;
+    width: 10vw;
+    height: auto;
+    background-color: white;
+    color: darkcyan;
+}
+
+.Search-result{
+    cursor: pointer;
 }

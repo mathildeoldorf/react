@@ -1,13 +1,113 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+nav, main {
+  padding: 2vw;
+  font-size: calc(1.2vw + 50%);
+}
+
+nav {
+  display: grid;
+  align-items: center;
+}
+
+main {
+  text-align: center;
+  display: grid;
+  align-items: center;
+}
+
+footer {
+  padding: 2vw;
+  display: grid;
+  justify-content: center;
+  background: #EEEEEE;
+  font-size: small;
+  text-align: center;
+}
+
+nav{
+  height: 100vh;
+}
+
+ul{
+  list-style-type: none;
+}
+
+li{
+  padding: 1vw 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+h1, h2, h3, h5, h6{
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+
+.App-header {
+  font-size: calc(3vw + 40%);
+  color: white;
+}
+
+.Header{
+  color: #fff;
+  padding: 0 0 2vw 0;
+  font-size: calc(1vw + 50%);
+}
+
+.Grid-container{
+  display: grid;
+}
+
+.Grid-two-thirds{
+  grid-template-columns: 1fr 3fr;
+}
+
 .App {
-  display:flex;
-  flex-direction: column;
   min-height: 100vh;
+  background: #FEAC5E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.App.Clear{
+  background: #22c1c3;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fdbb2d, #22c1c3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.App.Night{
+  background: #373B44;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.App.Clouds{
+  background: #DBE6F6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #C5796D, #DBE6F6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #C5796D, #DBE6F6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.App.Rain{
+  background: #2C3E50;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.App.Snow{
+  background: #8e9eab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* .App-logo {
@@ -20,17 +120,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 } */
-
-.App-header {
-  background-color: #282c34;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 /* .App-link {
   color: #61dafb;
@@ -45,22 +134,3 @@
   }
 } */
 
-
-main {
-  flex-grow: 1;
-  text-align: center;
-  padding: 25px;
-}
-footer {
-  padding: 2px;
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #EEEEEE;
-  font-size: small;
-  text-align: center;
-}
-header {
-  padding: 25px;
-}
