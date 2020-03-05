@@ -13,7 +13,7 @@ export default class Bus extends Component{
         return(
             <div>
                 <h1>The bus</h1>
-                {wheels.map((singlewheel, i) =>{
+                {wheels.map((singlewheel, i) => {
                     console.log('Wheel'+i)
                     return( <BusWheel key={'wheel'+i} wheel={singlewheel} />
                     );

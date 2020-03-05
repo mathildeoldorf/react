@@ -3,6 +3,7 @@
     padding: 0.7vw;
     width: 70%;
     margin-right: 0.5vw;
+    font-size: calc(0.2vw + 40%);
 }
 
 .Search-button{
@@ -14,12 +15,16 @@
 }
 
 .Search-results{
-    position: absolute;
+    position: relative;
     display: none;
-    width: 10vw;
-    height: auto;
+    padding: 0.3vw 0.7vw;
+    top: 0.2vw;
+    width: 70%;
+    height: 10vw;
+    overflow: scroll;
     background-color: white;
     color: darkcyan;
+    font-size: calc(0.2vw + 40%);
 }
 
 .Search-result{

@@ -1,5 +1,14 @@
 /////// REACT ////////
 
+INSTALL DEPENDENCIES MANUALLY: 
+in package.json
+{
+    "dependencies": {
+        "express": "4.17.1"
+    }
+}
+and then : npm i
+
 React, created by Facebook, is an open-source JavaScript library for building user interfaces. 
 It is used to create components, handle state and props, utilize event listeners and certain life cycle methods to update data as it changes.
 React combines HTML with JavaScript functionality to create its own markup language, JSX.
@@ -110,7 +119,7 @@ NO SEMICOLONS inside the react render return
 // GIT COMMANDS //
 
 git clone
-git add -A 
+git add -A (staging everything)
 git commit -m "first commit"
 git push
 
@@ -527,7 +536,12 @@ LOOPS:
     
 
 
-    
+ARROW functions
+    Why we use them:
+    - this is bound to the context when you use arrow functions - this means that this is defined where the function is defined 
+
+    with a normal function this is bound to where the function is called 
+        then you have to bind this with the method in the constructor this.onThemeChange = this.onThemeChange.bind(this);
 
 
     

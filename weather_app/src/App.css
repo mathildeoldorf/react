@@ -62,6 +62,14 @@ h1, h2, h3, h5, h6{
   font-size: calc(1vw + 50%);
 }
 
+.hide{
+  display: none !important;
+}
+
+.show{
+  display: block !important;
+}
+
 .Grid-container{
   display: grid;
 }

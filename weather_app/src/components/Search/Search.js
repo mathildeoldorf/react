@@ -12,42 +12,41 @@ export default class Search extends Component {
     }
 
     handleInput = (event) => {
-
         let input = event.target.value;
-
-            if(input.length >= 4){
-                const searchResults = [];
-                cities.map((singleCity, index) => {
-                    if(singleCity.name.startsWith(input)){
-                        let singleCityData = {
-                            name: singleCity.name,
-                            country: singleCity.country
-                        }
-                        // document.querySelector('.Search-results').innerHTML = singleCityData.name + singleCityData.country;
-                        return searchResults.push( singleCityData);
+        if(input.length >= 4){
+            const searchResults = [];
+            cities.map((singleCity) => {
+                if(singleCity.name.startsWith(input)){
+                    let singleCityData = {
+                        name: singleCity.name,
+                        country: singleCity.country
                     }
-    
-                    return searchResults;
-                    
-                });
+                    return searchResults.push(singleCityData);
+                }
 
-                this.handleShowSearchResults(searchResults);
-            }
+                return searchResults;
+                
+            });
 
-        this.setState({
-            city: event.target.value,
-            isLoading: true
-        });
+            this.setState({
+                city: event.target.value,
+                isLoading: true
+            });
+
+            this.handleShowSearchResults(searchResults);
+        }
     }
 
     handleClearSearch = (result) => {
-        console.log('clearing');
-        document.querySelector('.Search-results').style.display = 'none';
+        this.setState({
+            city: result
+        });
         document.querySelector('.Search').value = '';
+        document.querySelector('.Search-results').classList.remove('show');
+        document.querySelector('.Search-results').classList.add('hide');
         setTimeout(() => {
             this.handleSendSearchRequestData(result);
         }, 200);
-        
     }
 
     handleSendSearchRequestData = () => {
@@ -55,44 +54,39 @@ export default class Search extends Component {
    }
 
    handleShowSearchResults = (results) => {
-       console.log(results);
         if(results.length !== 0){
-            console.log('there is results');
-
             this.setState({
                 results: results
             });
-            
+            document.querySelector('.Search-results').classList.remove('hide');
+            document.querySelector('.Search-results').classList.add('show');
         }
-        else{
-            console.log('no results');
-        }
+        return
    }
 
     render(){
 
-        const {results} = this.state;
+        const { results } = this.state;
 
         return(
             <div>
                 <input className="Search" type="text" placeholder="Search by typing the name of the city"  onChange={ (event) => this.handleInput(event) }/>
+                    <button className="Search-button" onClick={ () => this.handleSendSearchRequestData()}>Search</button>
                 <div className="Search-results">
 
                 {   
-                this.state.results.map !== 0 ?
+                this.state.results.length !== 0 ?
                 results.map( (result, index) => {
+                    
                     console.log(result.name);
-                    document.querySelector('.Search-results').style.display = 'block';
                     return (
-                    <p className='Search-result' key={'result' + index} onClick={ () => this.handleClearSearch(result)}>{result.name + ' | ' + result.country} </p> 
+                    <p className='Search-result' key={'result' + index} onClick={ () => this.handleClearSearch(result.name + ',' + result.country)}>{result.name + ', ' + result.country} </p> 
                     );
                 })
                 :
                 console.log('no results')
                 }
-         
                 </div>
-                <button className="Search-button" onClick={ () => this.handleSendSearchRequestData()}>Search</button>
             </div>
         );
     }
