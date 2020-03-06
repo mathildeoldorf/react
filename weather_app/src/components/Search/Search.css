@@ -16,11 +16,10 @@
 
 .Search-results{
     position: relative;
-    display: none;
     padding: 0.3vw 0.7vw;
     top: 0.2vw;
     width: 70%;
-    height: 10vw;
+    min-height: 0px;
     overflow: scroll;
     background-color: white;
     color: darkcyan;
@@ -29,4 +28,15 @@
 
 .Search-result{
     cursor: pointer;
+}
+
+.hide{
+    opacity: 0;
+  }
+  
+.show{
+    /* height: auto; */
+    min-height: auto;
+    /* max-height: 10vw; */
+    /* display: block !important; */
 }

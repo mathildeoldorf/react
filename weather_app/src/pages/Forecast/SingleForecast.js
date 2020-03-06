@@ -34,6 +34,9 @@ export default class SingleForecast extends Component {
             case 'Rain':
                 iconToRender = <Rain className="Icon"/>;
             break;
+            case 'Drizzle':
+                iconToRender = <Rain className="Icon"/>;
+            break;
             case 'Snow':
                 iconToRender = <Snow className="Icon"/>;
             break;
@@ -41,7 +44,7 @@ export default class SingleForecast extends Component {
                 iconToRender = <Mist className="Icon"></Mist>;
             break;
             default:
-                iconToRender = <Logo className="Logo"></Logo>
+                iconToRender = <Logo className="Logo Icon"></Logo>
         }
         
         return iconToRender;

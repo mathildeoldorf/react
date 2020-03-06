@@ -86,18 +86,21 @@ export default class App extends Component {
 
   handleWeatherType = (weather) => {
     document.querySelector('.App').className = 'App';
-    let arrayWeather = ['Clouds', 'Clear', 'Rain', 'Snow'];
+    // let arrayWeather = ['Clouds', 'Clear', 'Rain', 'Snow'];
 
-    arrayWeather.map((singleWeatherType) =>{
-        if(singleWeatherType === weather){
+    console.log(weather);
+
+    // arrayWeather.map((singleWeatherType) =>{
+        // if(singleWeatherType === weather){
           document.querySelector('.App').classList.add(weather);
-        }
-        return singleWeatherType;
+        // }
+        // return singleWeatherType;
         
-      });
+      // });
   }
 
     handleCallbackFunctionSearchData = (childDataSearch) => {
+      console.log(childDataSearch);
       this.setState({
         city: childDataSearch.city,
         isLoading: childDataSearch.isLoading

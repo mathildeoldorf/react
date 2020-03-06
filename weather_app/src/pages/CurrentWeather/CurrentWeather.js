@@ -67,6 +67,9 @@ export default class Forecast extends Component {
             case 'Rain':
                 iconToRender = <Rain className="Icon"/>;
             break;
+            case 'Drizzle':
+                iconToRender = <Rain className="Icon"/>;
+            break;
             case 'Snow':
                 iconToRender = <Snow className="Icon"/>;
             break;
