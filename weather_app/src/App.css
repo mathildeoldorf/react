@@ -5,7 +5,6 @@
 }
 
 nav, main {
-  padding: 2vw;
   font-size: calc(1.2vw + 50%);
 }
 
@@ -13,10 +12,7 @@ nav {
   display: grid;
   align-items: center;
   padding: 2vw 1vw 2vw 3vw;
-}
-
-nav ul{
-  align-self: flex-start;
+  height: 100vh;
 }
 
 nav header{
@@ -29,6 +25,35 @@ main {
   align-items: center;
 }
 
+@media screen and (max-width: 900px){
+  nav{
+    padding: 4vw 20vw 4vw 20vw;
+    height: 30vh;
+  }
+
+  nav h1{
+    text-align: center;
+  }
+
+  .Logo{
+    text-align: center;
+    font-size: 10vw;
+  }
+
+  nav ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  nav li{
+    text-align: center;
+  }
+
+  main{
+    padding: 0;
+  }
+}
+
 footer {
   padding: 2vw;
   display: grid;
@@ -36,10 +61,6 @@ footer {
   background: #EEEEEE;
   font-size: small;
   text-align: center;
-}
-
-nav{
-  height: 100vh;
 }
 
 ul{
@@ -60,11 +81,11 @@ h1, h2, h3, h5, h6{
   margin-block-end: 0 !important;
 }
 
-p{
+p {
   font-size: calc(0.2vw + 40%);
 }
 
-.active{
+.active {
   text-decoration: underline #fff;
 }
 
@@ -73,10 +94,20 @@ p{
   color: white;
 }
 
-.Header{
+.Header {
   color: #fff;
   padding: 0 0 2vw 0;
   font-size: calc(1vw + 50%);
+}
+
+@media screen and (max-width: 900px){
+  h1{
+    font-size: calc(3vw + 50%);
+  }
+  p{
+    font-size: calc(0.5vw + 40%);
+  }
+  
 }
 
 .Grid-container{
@@ -84,51 +115,49 @@ p{
 }
 
 .Grid-two-thirds{
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2.5fr;
+}
+
+@media screen and (max-width: 900px){
+  .Grid-two-thirds{
+    display: block;
+    /* height: 100vh; */
+    margin: 0;
+  }
 }
 
 .App {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background: #FEAC5E;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.App.Clear{
+.Clear{
   background: #22c1c3;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #fdbb2d, #22c1c3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right, #fdbb2d, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fdbb2d, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.App.Night{
+.Night{
   background: #373B44;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-
-.App.Clouds{
+.Clouds{
   background: #DBE6F6;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #C5796D, #DBE6F6);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #C5796D, #DBE6F6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-}
-
-.App.Rain, {
-  background: #2C3E50;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-
-.App.Drizzle{
-  background: #4CA1AF;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+} 
+.Drizzle, .Rain{
+  background: #7F7FD5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-
-.App.Snow{
+.Snow{
   background: #8e9eab;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

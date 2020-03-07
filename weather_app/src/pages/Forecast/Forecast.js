@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import Axios from 'axios';
-import './Forecast.css';
-import SingleForecast from './SingleForecast';
+import React, {Component} from "react";
+import Axios from "axios";
+import "./Forecast.css";
+import SingleForecast from "./SingleForecast";
 
-import Loader from './../../components/Loader/Loader';
+import Loader from "./../../components/Loader/Loader";
 
-const APIkey = '0a12db146c850ff71f959d2eac0d28ef';
+const APIkey = "0a12db146c850ff71f959d2eac0d28ef";
 
 export default class Forecast extends Component {
 
@@ -83,8 +83,6 @@ export default class Forecast extends Component {
         
         let fiveDayForecastList = currentForecastList.map(( singleForecast, index ) => {
             if(index % 8 === 0){
-                console.log(singleForecast);
-
                 return( 
                     <SingleForecast key={"forecast-" + index} isLoading={this.state.isLoading} forecastData={ singleForecast } />
                 );
@@ -96,10 +94,11 @@ export default class Forecast extends Component {
 
     render(){
 
-        // const { city } = this.props;
+        const { city, country } = this.props;
         
         return(
-            <div>
+            <div className="Forecast-container">
+                <h1 className="Header">{city + " | " + country}</h1>
                 {this.handleLoading()}
                 <div className="Forecast">
                     {this.handleRenderSingleForecast()}

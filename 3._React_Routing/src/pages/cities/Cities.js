@@ -13,12 +13,6 @@ export default class Cities extends Component{
 
     async componentDidMount(){
         this._isMounted = true;
-        // fetch('https://indian-cities-api-nocbegfhqg.now.sh/cities')
-        // .then(response => response.json())
-        // .then(response => 
-        //     this.setState({data: response, isLoading: false})
-        //     );
-
         const res = await fetch('https://indian-cities-api-nocbegfhqg.now.sh/cities');
         const cities = await res.json();
         this.setState({data: cities, isLoading: false});

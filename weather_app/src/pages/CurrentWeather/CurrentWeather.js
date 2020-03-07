@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import './CurrentWeather.css';
+import React, {Component} from "react";
+import "./CurrentWeather.css";
 
-import { FaSun as Clear } from 'react-icons/fa'; // importing an icon from a package inside react-icons
-import {FaCloud as Clouds} from 'react-icons/fa';
-import {FaCloudRain as Rain} from 'react-icons/fa';
-import {FaWind as Wind} from 'react-icons/fa';
-import {FaSnowflake as Snow} from 'react-icons/fa';
-import {FaWind as Mist} from 'react-icons/fa';
-import {FaCloudSunRain as Logo} from 'react-icons/fa';
+import { FaSun as Clear } from "react-icons/fa"; // importing an icon from a package inside react-icons
+import {FaCloud as Clouds} from "react-icons/fa";
+import {FaCloudRain as Rain} from "react-icons/fa";
+import {FaWind as Wind} from "react-icons/fa";
+import {FaSnowflake as Snow} from "react-icons/fa";
+import {FaWind as Mist} from "react-icons/fa";
+import {FaCloudSunRain as Logo} from "react-icons/fa";
 
-import Loader from './../../components/Loader/Loader';
+import Loader from "./../../components/Loader/Loader";
 
 export default class Forecast extends Component {
 
@@ -46,10 +46,12 @@ export default class Forecast extends Component {
         let dateStr = dateObj.toDateString();
         let date = dateStr.slice(4, dateStr.length);
         let time = dateObj.toTimeString().slice(0, -41);
+        let day = dateStr.slice(0, 4);
 
         this.setState({
             date: date,
-            time: time
+            time: time,
+            day: day
         });
     
     }
@@ -58,22 +60,22 @@ export default class Forecast extends Component {
         let iconToRender;
 
         switch(weather){
-            case 'Clouds': 
+            case "Clouds": 
                 iconToRender = <Clouds className="Icon"/>;
             break;
-            case 'Clear':
+            case "Clear":
                 iconToRender = <Clear className="Icon"/>;
             break;
-            case 'Rain':
+            case "Rain":
                 iconToRender = <Rain className="Icon"/>;
             break;
-            case 'Drizzle':
+            case "Drizzle":
                 iconToRender = <Rain className="Icon"/>;
             break;
-            case 'Snow':
+            case "Snow":
                 iconToRender = <Snow className="Icon"/>;
             break;
-            case 'Mist':
+            case "Mist":
                 iconToRender = <Mist className="Icon"></Mist>;
             break;
             default:
@@ -94,21 +96,22 @@ export default class Forecast extends Component {
 
     render(){
         const { city, country, aTemp, fTemp, wind, weather } = this.props;
-        const { date, time, desc } = this.state;
+        const { date, time, desc, day } = this.state;
 
         return(
-            <div> 
+            <div className="Current-weather-container"> 
                 {this.handleLoading()}
+                <h1 className="Header">{city} | {country}</h1>
                 <div className="Current-weather">
-                    <h1 className="Header">{city} | {country}</h1>
+                    <h2 className="Day">{day}</h2>
                     <p>{date} | {time}</p>
                     {this.handleWeatherType(weather)}
                     
                     <h2 className="Temp">{aTemp} °c</h2>
                     <p>Feels like {fTemp} °c</p>
                     <h2 className="Weather">{desc}</h2>
-                    <h3><Wind/></h3>
-                    <p>{wind} m/s</p>
+                    <p className="Wind-icon"><Wind/></p>
+                    <p className="Wind">{wind} m/s</p>
                 </div>    
             </div>
         );

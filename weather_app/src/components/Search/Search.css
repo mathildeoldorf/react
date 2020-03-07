@@ -1,9 +1,15 @@
 .Search{
     border: none;
     padding: 0.7vw;
-    width: 70%;
     margin-right: 0.5vw;
-    font-size: calc(0.2vw + 40%);
+    font-size: calc(0.2vw + 30%);
+}
+
+.Search-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-self: start;
 }
 
 .Search-button{
@@ -12,14 +18,30 @@
     -webkit-appearance: none;
     background-color: darkcyan;
     padding: 0.7vw;
+    font-size: calc(0.2vw + 30%);
+}
+
+@media screen and (max-width: 900px){
+
+    .Search-container{
+        padding: 1vw 1vw 0 1vw;
+    }
+
+    .Search{
+        font-size: calc(0.6vw + 30%);
+    }
+
+    .Search-button{
+        font-size: calc(0.6vw + 30%);
+    }
 }
 
 .Search-results{
     position: relative;
     padding: 0.3vw 0.7vw;
     top: 0.2vw;
-    width: 70%;
-    min-height: 0px;
+    width: 98%;
+    opacity: 0;
     overflow: scroll;
     background-color: white;
     color: darkcyan;
@@ -29,14 +51,23 @@
 .Search-result{
     cursor: pointer;
 }
-
-.hide{
-    opacity: 0;
-  }
   
 .show{
-    /* height: auto; */
-    min-height: auto;
-    /* max-height: 10vw; */
-    /* display: block !important; */
+    animation-name: show;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    
+}
+
+@keyframes show {
+    0%{
+        opacity: 0;
+        height: 0pz;
+        min-height: 0px;
+    }
+    100%{
+        opacity: 1;
+        min-height: auto;
+    }
 }

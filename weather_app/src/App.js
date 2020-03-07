@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
-import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom';
-import Search from './components/Search/Search';
-import CurrentWeather from './pages/CurrentWeather/CurrentWeather';
-import Forecast from './pages/Forecast/Forecast';
+import React, {Component} from "react";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
+import Search from "./components/Search/Search";
+import CurrentWeather from "./pages/CurrentWeather/CurrentWeather";
+import Forecast from "./pages/Forecast/Forecast";
 
-import {FaCloudSunRain as Logo} from 'react-icons/fa';
+import {FaCloudSunRain as Logo} from "react-icons/fa";
 
 
-import Axios from 'axios';
-const APIkey = '0a12db146c850ff71f959d2eac0d28ef';
+import Axios from "axios";
+const APIkey = "0a12db146c850ff71f959d2eac0d28ef";
 
 // PAGES
 
-// import Navigation from './components/Navigation';
-// import Routes from './components/Routes';
+// import Navigation from "./components/Navigation";
+// import Routes from "./components/Routes";
 
 export default class App extends Component {
 
@@ -22,7 +22,7 @@ export default class App extends Component {
 
   state = {
     isLoading: true,
-    city: 'Copenhagen',
+    city: "Copenhagen",
     country: undefined,
     weather: undefined,
     desc: undefined,
@@ -40,7 +40,7 @@ export default class App extends Component {
   componentDidMount(){
     this._isMounted = true; 
     if(this.state.isLoading){
-      console.log('loading');
+      console.log("loading");
       if(this.state.city){
         this.handleFetchCurrentWeatherData(this.state.city);
       }  
@@ -85,18 +85,7 @@ export default class App extends Component {
     }
 
   handleWeatherType = (weather) => {
-    document.querySelector('.App').className = 'App';
-    // let arrayWeather = ['Clouds', 'Clear', 'Rain', 'Snow'];
-
-    console.log(weather);
-
-    // arrayWeather.map((singleWeatherType) =>{
-        // if(singleWeatherType === weather){
-          document.querySelector('.App').classList.add(weather);
-        // }
-        // return singleWeatherType;
-        
-      // });
+    document.querySelector(".App").className = "App " + weather;
   }
 
     handleCallbackFunctionSearchData = (childDataSearch) => {
@@ -117,29 +106,26 @@ export default class App extends Component {
   render(){   
     return (
       <Router>
-        
         <div className="App">
           <div className="Grid-container Grid-two-thirds">  
           <nav className="Navigation">
             <header className="App-header">
-            <Link activeClassName="active" to="/"><h1>In Rain or Shine <Logo/></h1></Link>
+            <Link to="/"><h1>In Rain or Shine</h1><div className="Logo"><Logo/></div> </Link>
             </header>
                 <ul>
                     <li>
-                    <NavLink activeClassName="active" to="/">Current Weather</NavLink>
+                    <NavLink activeClassName="active" to="/" exact>Current Weather</NavLink>
                     </li>
                     <li>
                     <NavLink activeClassName="active" to="/forecast">5-day Forecast</NavLink>
                     </li>
-                    <li>
-                    < Search parentCallbackSearchData = {this.handleCallbackFunctionSearchData}/>
-                    </li>
                 </ul>
+                < Search parentCallbackSearchData = {this.handleCallbackFunctionSearchData}/>
           </nav>
           <main>
           <Switch>
             <Route exact path="/" component={(props) => <CurrentWeather {...props} {...this.state} weather={this.state.weather} />}/>
-            <Route exact path="/forecast" component={(props) => <Forecast {...props} city={this.state.city} isLoading={this.state.isLoading}/>}/>
+            <Route exact path="/forecast" component={(props) => <Forecast {...props} city={this.state.city} isLoading={this.state.isLoading} country={this.state.country}/>}/>
           </Switch>
           </main>
           </div>  

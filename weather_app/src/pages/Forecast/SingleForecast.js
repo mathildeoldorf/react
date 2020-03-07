@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
-import { FaSun as Clear } from 'react-icons/fa'; // importing an icon from a package inside react-icons
-import {FaCloud as Clouds} from 'react-icons/fa';
-import {FaCloudRain as Rain} from 'react-icons/fa';
-import {FaWind as Wind} from 'react-icons/fa';
-import {FaSnowflake as Snow} from 'react-icons/fa';
-import {FaWind as Mist} from 'react-icons/fa';
-import {FaCloudSunRain as Logo} from 'react-icons/fa';
+import { FaSun as Clear } from "react-icons/fa"; // importing an icon from a package inside react-icons
+import {FaCloud as Clouds} from "react-icons/fa";
+import {FaCloudRain as Rain} from "react-icons/fa";
+import {FaWind as Wind} from "react-icons/fa";
+import {FaSnowflake as Snow} from "react-icons/fa";
+import {FaWind as Mist} from "react-icons/fa";
+import {FaCloudSunRain as Logo} from "react-icons/fa";
 
-import './SingleForecast.css';
+import "./SingleForecast.css";
 
 export default class SingleForecast extends Component {
 
@@ -25,22 +25,22 @@ export default class SingleForecast extends Component {
         let iconToRender;
 
         switch(weather){
-            case 'Clouds': 
+            case "Clouds": 
                 iconToRender = <Clouds className="Icon"/>;
             break;
-            case 'Clear':
+            case "Clear":
                 iconToRender = <Clear className="Icon"/>;
             break;
-            case 'Rain':
+            case "Rain":
                 iconToRender = <Rain className="Icon"/>;
             break;
-            case 'Drizzle':
+            case "Drizzle":
                 iconToRender = <Rain className="Icon"/>;
             break;
-            case 'Snow':
+            case "Snow":
                 iconToRender = <Snow className="Icon"/>;
             break;
-            case 'Mist':
+            case "Mist":
                 iconToRender = <Mist className="Icon"></Mist>;
             break;
             default:
@@ -57,13 +57,10 @@ export default class SingleForecast extends Component {
         let dateStr = dateObj.toDateString();
         let date = dateStr.slice(4, dateStr.length);
         let day = dateStr.slice(0, 4);
-        console.log(day);
-        // let time = dateObj.toTimeString().slice(0, -41);
 
         this.setState({
             date: date,
             day: day
-            // time: time
         });
     
     }
@@ -79,12 +76,12 @@ export default class SingleForecast extends Component {
 
 
     render(){
-        const { aTemp, fTemp, wind, weather, city } = this.props.forecastData;
+        const { aTemp, fTemp, wind, weather} = this.props.forecastData;
         const { day, date, desc } = this.state;
 
         return(
             <div>
-                <div className="Single-forecast Current-weather">
+                <div className={"Single-forecast Current-weather " + weather}>
                     <h3>{day}</h3>
                     <p>{date}</p>
                     {this.handleWeatherType(weather)}
