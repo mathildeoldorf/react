@@ -1,5 +1,19 @@
 {
+    "name": "firstexpressapi",
+    "version": "1.0.0",
+    "description": "bla",
+    "main": "index.js",
+    "scripts": {
+        "test": "first Express API"
+    },
     "dependencies": {
         "express": "4.17.1"
-    }
+    },
+    "keywords": [
+        "API",
+        "CRUD",
+        "Express"
+    ],
+    "author": "Mathilde",
+    "license": "ISC"
 }

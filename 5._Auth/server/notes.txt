@@ -1,0 +1,43 @@
+ORM - React, NodeJS
+
+Knex.js: Helps to do queries, migrations - to define the schema, creating connection with another package, seeds 
+supports many relational databases
+
+install knew globally
+add knex to dependencies and install
+knex init - creating knexfile.js automatically
+
+Making a migration: 
+
+
+
+NEEDS A DRIVER: mysql npm package
+
+Export values: module.export = {}
+
+
+
+
+Objection.js: ORM for Node.js 
+Create objects, relational query builder built on the relational query builder knex
+
+What objection.js gives you:
+
+An easy declarative way of defining models and relationships between them
+Simple and fun way to fetch, insert, update and delete objects using the full power of SQL
+Powerful mechanisms for eager loading, inserting and upserting object graphs
+Easy to use transactions
+Official TypeScript support
+Optional JSON schema validation
+A way to store complex documents as single rows
+
+
+
+
+// READ documentation
+
+
+
+// install globally: npm i -g <name of package> 
+--> to be able to use as command line tool 
+

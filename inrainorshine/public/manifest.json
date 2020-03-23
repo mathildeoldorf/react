@@ -1,0 +1,15 @@
+{
+  "short_name": "In Rain or Shine",
+  "name": "I Rain or Shine",
+  "icons": [
+    {
+      "src": "./inrainorshine.ico",
+      "sizes": "192x192 512x152 64x64 32x32 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

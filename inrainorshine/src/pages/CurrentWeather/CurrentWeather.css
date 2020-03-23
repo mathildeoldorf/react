@@ -1,0 +1,64 @@
+.Icon{
+    width: 12vw;
+    height: 8vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    padding-top: 1vw;
+}
+
+.Current-weather{
+    background-color: RGBA(255, 255, 255, 0.1);
+    color: #fff;
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    padding: 2vw 4vw;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+@media screen and (max-width: 900px){
+    .Current-weather-container{
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .Current-weather{
+        width: 80%;
+        margin: 2vw auto 5vw auto;
+        padding: 7vw;
+    }
+}
+
+.Current-weather .Header{
+    font-size: calc(1vw + 30%);
+    color: #fff;
+    padding: 0.5vw;
+}
+
+.Current-weather .Weather{
+    padding-top: 0.5vw;
+}
+
+.Current-weather .Wind{
+    font-size: calc(1vw + 30% );
+}
+
+.Current-weather .Day{
+    padding: 1vw;
+}
+
+.Current-weather .Wind-icon{
+    margin: 1vw;
+    font-size: calc(0.5vw + 40%);
+}
+  
+.Temp{
+    font-size: calc(4vw + 60%);
+    color: darkcyan;
+}
+
+@media screen and (max-width: 900px){
+    .Temp{
+        padding: 0  2vw  2vw 2vw;
+    }
+}
