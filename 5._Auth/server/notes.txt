@@ -7,15 +7,31 @@ install knew globally
 add knex to dependencies and install
 knex init - creating knexfile.js automatically
 
-Making a migration: 
-
-
-
 NEEDS A DRIVER: mysql npm package
 
 Export values: module.export = {}
 
+Making a migration: ---> Schema
+    knex migrate:make migration_name
 
+    exports.up --> what happens when it is run
+    exports.down --> what happens when it is rolled back
+
+    Run the migrations - insert credentials
+    Send to server and run the migrations -- 
+        Then it will be up and running
+
+    knex migrate:latest - runs everything that is not in the table already
+
+
+Seed = can be run and tha'ts it
+---> defines the data that is hardcoded into the DB
+
+
+GETTERS AND SETTERS
+
+The getter method returns the value of the attribute. The setter method takes a parameter and assigns it to the attribute.
+methods that calls on the class, not its instance
 
 
 Objection.js: ORM for Node.js 

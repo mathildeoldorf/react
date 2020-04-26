@@ -1,5 +1,4 @@
 $.get("persons").then(res =>{
-
     res.map(person => {
         const containerPerson=`
             <div class="personCard" id="person-${person.id}">
@@ -14,8 +13,6 @@ $.get("persons").then(res =>{
         `;
         $(".person-wrapper").append(containerPerson); 
     });  
-    
-    
 });
 
 
