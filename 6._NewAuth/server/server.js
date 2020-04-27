@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require("cors")
 const session = require("express-session")
 const app = express()
 
@@ -8,8 +9,9 @@ const quizRoute = require("./routes/quiz")
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-app.use(session({ secret: "ssshhhhh", saveUninitialized: true, resave: true }))
+app.use(session({ secret: "ssshhhhh", saveUninitialized: true, resave: true, cookie: { secure:true } }))
 app.use("/assets", express.static("assets"))
+app.use(cors())
 
 // SETUP THE DATABASE
 const { Model } = require("objection")
@@ -20,7 +22,7 @@ const KnexFile = require("./knexfile.js")
 const rateLimit = require('express-rate-limit')
 const authlimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // reset interval
-    max: 4 // requests pr IP pr interval
+    max: 100 // requests pr IP pr interval
 })
 
 

@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 export default class Form extends Component{
 
-    state ={
+    state = {
         firstName : undefined,
         lastName : undefined
     }

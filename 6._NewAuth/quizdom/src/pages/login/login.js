@@ -1,28 +1,34 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
+import "./login.css"
+
+
 
 export default function Login(){
-    const [input, setValue] = useState("")
-    const [email, setEmail] = useState("a@a.com")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
-    const handleInput = (event) => {
-        console.log(event.target.value)
-        setValue(event.target.value)
+    function validateForm() {
+        return email.length > 0 && password.length > 0;
     }
 
-    const handleUpdateEmail = (event) => {
-        event.preventDefault()
-        setEmail(input)
-        setValue("") // RESET VALUE OF THE INPUT
+    async function handleSubmit(event) {
+        event.preventDefault();
+        console.log(email, password)
+        let connection = await fetch("http://localhost:9090/user/login")
+        let data = await connection.json()
+        console.log(data)
     }
 
     return (
-    <div>
-    <p>Hello {email}</p>
-    <form>
-        <input type="text" placeholder="Email" value={input} onChange={handleInput}></input>
-        {/* <input type="text" placeholder="Password" value={input} onChange={handleInput}></input> */}
-        <button onClick={handleUpdateEmail}></button>
-    </form>
-    </div>
+        <div className="Login">
+            <form onSubmit={handleSubmit}>
+                <h2 className="formHeader">Login</h2>
+                <label htmlFor="email">Email</label>
+                <input id="email" placeholder="E-mail" type="email" value={email} onChange={e=> setEmail(e.target.value)}></input>
+                <label htmlFor="password">Password</label>
+                <input id="password" placeholder="Password" type="password" value={password} onChange={e=> setPassword(e.target.value)}></input>
+                <button disabled={!validateForm()} type="submit">Login</button>
+            </form>
+        </div>
     )
 }

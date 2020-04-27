@@ -94,6 +94,8 @@ router.post("/user/register", async (req, res) => {
 
 router.post("/user/login", async (req, res) => {
 
+    res.header('Access-Control-Allow-Origin', '*')
+
     const { email, password } = req.body
 
     if(!email && !password){
@@ -126,7 +128,8 @@ router.post("/user/login", async (req, res) => {
         sess = req.session
         sess.user = user
 
-        res.redirect("/user/profile")        
+        return res.send({response: sess.user})
+        // res.redirect("/user/profile")        
     })
 })
 
@@ -147,6 +150,7 @@ router.get("/user/logout", (req, res) => {
 // ###################################### PROFILE
 
 router.get("/user/profile", async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*')
     const userID = user.ID
 
     if(!req.session){
